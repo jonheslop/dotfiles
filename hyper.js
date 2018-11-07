@@ -90,7 +90,7 @@ module.exports = {
     'hyper-statusline',
     'hyperterm-alternatescroll',
     "hyper-pane",
-    "hyperemoji"
+    "hyper-emoji"
   ],
 
   // in development, you can create a directory under
