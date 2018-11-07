@@ -86,8 +86,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias zshconfig="sublime ~/.zshrc"
-alias hyperconfig="sublime ~/.hyper.js"
+alias zshconfig="sublime ~/dotfiles/zshrc"
+alias hyperconfig="sublime ~/dotfiles/hyper.js"
 alias gri="git rebase -i master"
 alias gpf="git push --force origin"
 
