@@ -8,6 +8,7 @@ My dotfiles for vim, hyper and zsh
 [Node/NPM](https://nodejs.org/en/)
 [iA Write Mono](https://github.com/iaolo/iA-Fonts)
 [Hyper](https://hyper.is/)
+[Docker](https://docs.docker.com/docker-for-mac/)
 
 ## Apps that I use a lot
 
