@@ -62,8 +62,7 @@ plugins=(
   git
   zsh-syntax-highlighting
   zsh-autosuggestions
-  jira
-  npm  
+  npm
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -97,33 +96,15 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-JIRA_URL="https://payments-platform.atlassian.net"
-
 alias zshconfig="vim ~/.zshrc"
 alias hyperconfig="vim ~/.hyper.js"
 # alias gpf="git push origin $(git rev-parse --abbrev-ref HEAD) --force"
 alias gri="git rebase -i master"
-alias docker-time="docker run -it --rm --privileged --pid=host debian nsenter -t 1 -m -u -n -i date -u $(date -u +%m%d%H%M%Y)"
-# alias docker-eval="eval $(docker-machine env)"
-alias ssss="docker stop selfservice && docker start selfservice"
-alias ffss="docker stop frontend && docker start frontend"
- 
-export WORKSPACE=/Users/jonheslop/gds/pay
-export PATH=$PATH:$WORKSPACE/pay-scripts/bin
-export PATH="$PATH:$WORKSPACE/pay-infra/cli/bin"
 
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
-
-export PATH="$HOME/.rbenv/bin:/usr/local/bin:$PATH"
-eval "$(rbenv init -)"
-export AWS_DEFAULT_REGION=eu-west-1
-export AWS_REGION=eu-west-1
  
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
 
 EDITOR=vim
-
-[ -s "$HOME/gds/digital-marketplace/digitalmarketplace-runner/Brewfile.env" ] && \
-        . $HOME/gds/digital-marketplace/digitalmarketplace-runner/Brewfile.env
