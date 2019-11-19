@@ -1,14 +1,20 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/jonheslop/.oh-my-zsh
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-source "$HOME/.rvm/scripts/rvm"
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="refined"
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="pure"
+# Set list of themes to load
+# Setting this variable when ZSH_THEME=random
+# cause zsh load theme from this variable instead of
+# looking in ~/.oh-my-zsh/themes/
+# An empty array have no effect
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -52,14 +58,19 @@ ZSH_THEME="pure"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git npm zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(
+  git
+  zsh-syntax-highlighting
+  zsh-autosuggestions
+  jira
+  npm  
+)
+
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/Users/jonheslop/.rvm/gems/ruby-2.2.0/bin:/Users/jonheslop/.rvm/gems/ruby-2.2.0@global/bin:/Users/jonheslop/.rvm/rubies/ruby-2.2.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/Users/jonheslop/.rvm/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
-
-source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -75,7 +86,7 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -86,19 +97,33 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias zshconfig="sublime ~/dotfiles/zshrc"
-alias hyperconfig="sublime ~/dotfiles/hyper.js"
+JIRA_URL="https://payments-platform.atlassian.net"
+
+alias zshconfig="vim ~/.zshrc"
+alias hyperconfig="vim ~/.hyper.js"
+# alias gpf="git push origin $(git rev-parse --abbrev-ref HEAD) --force"
 alias gri="git rebase -i master"
-alias gpf="git push --force origin"
+alias docker-time="docker run -it --rm --privileged --pid=host debian nsenter -t 1 -m -u -n -i date -u $(date -u +%m%d%H%M%Y)"
+# alias docker-eval="eval $(docker-machine env)"
+alias ssss="docker stop selfservice && docker start selfservice"
+alias ffss="docker stop frontend && docker start frontend"
+ 
+export WORKSPACE=/Users/jonheslop/gds/pay
+export PATH=$PATH:$WORKSPACE/pay-scripts/bin
+export PATH="$PATH:$WORKSPACE/pay-infra/cli/bin"
 
-NPM_PACKAGES="${HOME}/.npm-packages"
-PATH="$NPM_PACKAGES/bin:$PATH"
-
-export NVM_DIR="$HOME/.nvm"
+export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
-# Unset manpath so we can inherit from /etc/manpath via the `manpath` command
-unset MANPATH # delete if you already modified MANPATH elsewhere in your config
-export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+export PATH="$HOME/.rbenv/bin:/usr/local/bin:$PATH"
+eval "$(rbenv init -)"
+export AWS_DEFAULT_REGION=eu-west-1
+export AWS_REGION=eu-west-1
+ 
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
 
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+EDITOR=vim
+
+[ -s "$HOME/gds/digital-marketplace/digitalmarketplace-runner/Brewfile.env" ] && \
+        . $HOME/gds/digital-marketplace/digitalmarketplace-runner/Brewfile.env
