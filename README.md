@@ -1,6 +1,6 @@
 # dotfiles
 
-My dotfiles for vim, hyper and zsh
+My dotfiles for vim and zsh
 
 ## Things that I install first
 
@@ -9,7 +9,6 @@ My dotfiles for vim, hyper and zsh
 - rbenv
 - [Node/NPM](https://nodejs.org/en/)
 - [iA Write Mono](https://github.com/iaolo/iA-Fonts)
-- [Hyper](https://hyper.is/)
 - [Docker](https://docs.docker.com/docker-for-mac/)
 
 ## Apps that I use a lot
