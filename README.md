@@ -17,3 +17,4 @@ My dotfiles for vim, hyper and zsh
 - [Divvy](https://mizage.com/divvy/)
 - [Keybase](https://keybase.io/)
 - [xScope](https://xscopeapp.com/)
+
