@@ -5,6 +5,8 @@ My dotfiles for vim, hyper and zsh
 ## Things that I install first
 
 - [Homebrew](https://brew.sh/)
+- gnupg gnupg2
+- rbenv
 - [Node/NPM](https://nodejs.org/en/)
 - [iA Write Mono](https://github.com/iaolo/iA-Fonts)
 - [Hyper](https://hyper.is/)
